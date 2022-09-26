@@ -1,32 +1,102 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "C8QL",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.c8ql",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.c8ql",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.c8ql",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.c8ql"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "C8QL",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#values"
+    },
+    {
+      "include": "#params"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.c8ql",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.c8ql",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.c8ql",
+          "match": "\\b(?i:for|search|outbound|inbound|any|graph|prune|options|shortest_path|to|in|return|filter|sort|desc|limit|let|collect|remove|update|replace|insert|upsert|into|with)\\b"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "support.function.c8ql",
+          "match": "\\b(?i:append|contains_array|count|count_distinct|count_unique|first|flatten|intersection|last|length|minus|nth|outersection|pop|position|push|remove_nth|remove_value|remove_values|reverse|shift|slice|sorted|sorted_unique|union|union_distinct|unique|unshift|date_now|date_iso8601|date_timestamp|is_datestring|date_dayofweek|date_year|date_month|date_day|date_hour|date_minute|date_second|date_millisecond|date_dayofyear|date_isoweek|date_leapyear|date_quarter|date_days_in_month|date_trunc|date_format|date_add|date_subtract|date_diff|date_compare|attributes|count|has|is_same_collection|keep|length|matches|merge|merge_recursive|parse_identifier|translate|unset|unset_recursive|values|zip|fulltext|distance|geo_contains|geo_distance|geo_equals|geo_intersects|is_in_polygon|not_null|first_list|first_document|check_document|collection_count|collections|count|current_user|document|length|hash|apply|assert|/ warn|call|fail|noopt|passthru|sleep|v8|version|abs|acos|asin|atan|atan2|average|avg|ceil|cos|degrees|exp|exp2|floor|log|log2|log10|max|median|min|percentile|pi|pow|radians|rand|range|round|sin|sqrt|stddev_population|stddev_sample|stddev|sum|tan|variance_population|variance_sample|variance|char_length|concat|concat_separator|contains|count|encode_uri_component|find_first|find_last|json_parse|json_stringify|left|length|levenshtein_distance|like|lower|ltrim|md5|random_token|regex_matches|regex_split|regex_test|regex_replace|reverse|right|rtrim|sha1|sha512|split|soundex|substitute|substring|tokens|to_base64|to_hex|trim|upper|uuid|to_bool|to_number|to_string|to_array|to_list|is_null|is_bool|is_number|is_string|is_array|is_list|is_object|is_document|is_datestring|is_key|typename)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.c8ql",
+          "match": "\\+|\\-|\\/|\\/\\/|%|<@>|@>|<@|&|\\^|~|<|>|<=|=>|==|!=|<>|="
+        }
+      ]
+    },
+    "values": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.c8ql",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.c8ql",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.c8ql",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.c8ql",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "constant.numeric.c8ql",
+          "match": "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+        },
+        {
+          "name": "constant.language",
+          "match": "\\b(?i:true|false|new|old|null)\\b"
+        }
+      ]
+    },
+    "params": {
+      "name": "variable.parameter.c8ql",
+      "match": "@\\w+"
+    }
+  },
+  "scopeName": "source.c8ql"
 }

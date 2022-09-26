@@ -10,16 +10,28 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "c8ql",
-      "aliases": ["C8QL", "c8ql"],
-      "extensions": [".c8ql"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "c8ql",
-      "scopeName": "source.c8ql",
-      "path": "./syntaxes/c8ql.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "c8ql",
+        "aliases": [
+          "C8QL",
+          "c8ql"
+        ],
+        "extensions": [
+          ".c8ql"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "c8ql",
+        "scopeName": "source.c8ql",
+        "path": "./syntaxes/c8ql.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "copy-win": "xcopy /e /i /y . %USERPROFILE%\\.vscode\\extensions\\c8ql-lang"
   }
 }
