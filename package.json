@@ -32,6 +32,7 @@
     ]
   },
   "scripts": {
+    "copy": "cp -r . $HOME/.vscode/extensions/c8ql-lang",
     "copy-win": "xcopy /e /i /y . %USERPROFILE%\\.vscode\\extensions\\c8ql-lang"
   }
 }
