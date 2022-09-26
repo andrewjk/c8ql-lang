@@ -1,0 +1,25 @@
+{
+  "name": "c8ql-lang",
+  "displayName": "C8QL Language",
+  "description": "Syntax highlighting for the C8 Query Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.71.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "c8ql",
+      "aliases": ["C8QL", "c8ql"],
+      "extensions": [".c8ql"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "c8ql",
+      "scopeName": "source.c8ql",
+      "path": "./syntaxes/c8ql.tmLanguage.json"
+    }]
+  }
+}
